@@ -80,6 +80,7 @@ public class VehicleServiceTest {
     boolean isAvailable = vehicleService.isAvailable(list, getDate("12/29/2018"), getDate("01/11/2019"));
     assertFalse(isAvailable);
   }
+
   /* test if the requested (pickup, return) is before and after one of the booking interval*/
   @Test
   public void testIsNotAvailable3() {
@@ -101,6 +102,7 @@ public class VehicleServiceTest {
     boolean isAvailable = vehicleService.isAvailable(list, getDate("12/20/2018"), getDate("01/16/2019"));
     assertFalse(isAvailable);
   }
+
   @Test
   public void testIsAvailable4() {
     List<VehicleBookingInfo> list = new ArrayList();
@@ -108,6 +110,7 @@ public class VehicleServiceTest {
     boolean isAvailable = vehicleService.isAvailable(list, getDate("12/29/2018"), getDate("01/05/2019"));
     assertTrue(isAvailable);
   }
+
   private Date getDate(String dateString) {
     SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
     try {
