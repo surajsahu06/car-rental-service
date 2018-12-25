@@ -64,10 +64,6 @@ public class RentalServiceTest {
     customerInfo.setFirstName("river");
     customerInfo.setLastName("water");
     customerInfo.setPhone(new Integer(123));
-    VehicleBookingInfo info = new VehicleBookingInfo();
-    info.setVehicleId(123);
-    info.setPickupDate(getDate("01/02/2019"));
-    info.setReturnDate(getDate("01/05/2019"));
     when(customerService.getCustomerInfo(email)).thenReturn(null);
 
     List<VehicleBookingInfo> list = new ArrayList();
