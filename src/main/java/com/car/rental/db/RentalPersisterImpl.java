@@ -15,7 +15,7 @@ public class RentalPersisterImpl implements RentalPersister {
     rentalInfo.setEmail(email);
     rentalInfo.setRentalId(1);
     rentalInfo.setTransactionInfo(new TransactionInfo());
-    rentalInfo.setVehicle(vehicleBookingInfo);
+    rentalInfo.setVehicleBookingInfo(vehicleBookingInfo);
     // and rental info can be saved to db here;
     return true;
   }
