@@ -33,7 +33,7 @@ public class RentalServiceImpl implements RentalService {
       LOGGER.warn("email address is required!");
       return false;
     }
-    if(vehicleId==null){
+    if (vehicleId == null) {
       LOGGER.warn("vehicleId is required!");
       return false;
     }
