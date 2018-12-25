@@ -1,6 +1,5 @@
 package com.car.rental.service;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class VehicleServiceImpl implements VehicleService {
     if (bookingInfoList.isEmpty()) {
       return true;
     }
-    Collections.sort(bookingInfoList, (v1, v2) -> v1.getPickupDate().compareTo(v2.getPickupDate()));
+    //Collections.sort(bookingInfoList, (v1, v2) -> v1.getPickupDate().compareTo(v2.getPickupDate()));
     for (VehicleBookingInfo info : bookingInfoList) {
       if (pickupDate.after(info.getPickupDate()) && pickupDate.before(info.getReturnDate())) {
         return false;
