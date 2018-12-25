@@ -21,7 +21,7 @@ import com.car.rental.model.VehicleBookingInfo;
 
 public class RentalServiceTest {
 
-  static String email = "riverTest@gmail.com";
+  static String email = "firstName@gmail.com";
 
   CustomerService customerService;
 
@@ -36,8 +36,8 @@ public class RentalServiceTest {
     vehicleService = mock(VehicleServiceImpl.class);
     CustomerInfo customerInfo = new CustomerInfo();
     customerInfo.setEmail(email);
-    customerInfo.setFirstName("river");
-    customerInfo.setLastName("water");
+    customerInfo.setFirstName("firstName");
+    customerInfo.setLastName("lastName");
     customerInfo.setPhone(new Integer(123));
     VehicleBookingInfo info = new VehicleBookingInfo();
     info.setVehicleId(123);
@@ -61,8 +61,8 @@ public class RentalServiceTest {
     vehicleService = mock(VehicleServiceImpl.class);
     CustomerInfo customerInfo = new CustomerInfo();
     customerInfo.setEmail(email);
-    customerInfo.setFirstName("river");
-    customerInfo.setLastName("water");
+    customerInfo.setFirstName("firstName");
+    customerInfo.setLastName("lastName");
     customerInfo.setPhone(new Integer(123));
     when(customerService.getCustomerInfo(email)).thenReturn(null);
 
