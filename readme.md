@@ -18,8 +18,9 @@ VehicleService
       isAvailable(List<VehicleBookingInfo> list, Date pickupDate, Date returnDate){
 
       This method will check if the requested pickupDate and returnDate is available for the vehicleId;
-       1- check if the requested pickup date is between any of the bookings made for the vehicleId;
-       2- check if the requested return date is between any of the bookings made for the vehicleId;
-       3- check if any of the booking lies between requested pickup and return date;
+       1- if no bookings found for vehicleId means vehicle is available;
+       2- check if the requested pickup date is between any of the bookings made for the vehicleId;
+       3- check if the requested return date is between any of the bookings made for the vehicleId;
+       4- check if any of the booking lies between requested pickup and return date;
       }
 
