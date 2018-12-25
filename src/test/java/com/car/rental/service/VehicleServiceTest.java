@@ -2,7 +2,6 @@ package com.car.rental.service;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,8 +12,6 @@ import java.util.List;
 import org.junit.Test;
 
 import com.car.rental.model.VehicleBookingInfo;
-import com.car.rental.db.VehiclePersister;
-import com.car.rental.db.VehiclePersisterImpl;
 
 /**
  * Created by ssahoo on 12/24/18.
@@ -22,8 +19,7 @@ import com.car.rental.db.VehiclePersisterImpl;
 public class VehicleServiceTest {
 
   @Test
-  public void testIsAvailabe() {
-    VehiclePersister vehiclePersister = mock(VehiclePersisterImpl.class);
+  public void testIsAvailable() {
     List<VehicleBookingInfo> list = new ArrayList();
 
     VehicleBookingInfo v1 = new VehicleBookingInfo();
@@ -45,7 +41,6 @@ public class VehicleServiceTest {
 
   @Test
   public void testIsNotAvailable() {
-    VehiclePersister vehiclePersister = mock(VehiclePersisterImpl.class);
     List<VehicleBookingInfo> list = new ArrayList();
 
     VehicleBookingInfo v1 = new VehicleBookingInfo();
@@ -67,7 +62,6 @@ public class VehicleServiceTest {
 
   @Test
   public void testIsNotAvailable2() {
-    VehiclePersister vehiclePersister = mock(VehiclePersisterImpl.class);
     List<VehicleBookingInfo> list = new ArrayList();
 
     VehicleBookingInfo v1 = new VehicleBookingInfo();
@@ -89,7 +83,6 @@ public class VehicleServiceTest {
   /* test if the requested (pickup, return) is before and after one of the booking interval*/
   @Test
   public void testIsNotAvailable3() {
-    VehiclePersister vehiclePersister = mock(VehiclePersisterImpl.class);
     List<VehicleBookingInfo> list = new ArrayList();
 
     VehicleBookingInfo v1 = new VehicleBookingInfo();
@@ -107,6 +100,13 @@ public class VehicleServiceTest {
     VehicleService vehicleService = new VehicleServiceImpl();
     boolean isAvailable = vehicleService.isAvailable(list, getDate("12/20/2018"), getDate("01/16/2019"));
     assertFalse(isAvailable);
+  }
+  @Test
+  public void testIsAvailable4() {
+    List<VehicleBookingInfo> list = new ArrayList();
+    VehicleService vehicleService = new VehicleServiceImpl();
+    boolean isAvailable = vehicleService.isAvailable(list, getDate("12/29/2018"), getDate("01/05/2019"));
+    assertTrue(isAvailable);
   }
   private Date getDate(String dateString) {
     SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
