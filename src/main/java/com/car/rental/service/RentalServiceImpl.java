@@ -28,9 +28,13 @@ public class RentalServiceImpl implements RentalService {
   }
 
   @Override
-  public boolean bookMyCar(String email, int vehicleId, Date pickup, Date returnDate) {
+  public boolean bookMyCar(String email, Integer vehicleId, Date pickup, Date returnDate) {
     if (email == null) {
       LOGGER.warn("email address is required!");
+      return false;
+    }
+    if(vehicleId==null){
+      LOGGER.warn("vehicleId is required!");
       return false;
     }
     if (pickup == null) {

@@ -18,7 +18,7 @@ public class RentalController {
   }
 
   @PostMapping(path = "/rent")
-  public ResponseEntity rentVehicle(String email, int vehicleId, Date pickup, Date returnDate) {
+  public ResponseEntity rentVehicle(String email, Integer vehicleId, Date pickup, Date returnDate) {
     boolean isBooked = rentalService.bookMyCar(email, vehicleId, pickup, returnDate);
     if (isBooked) {
       return ResponseEntity.ok("Booking has been successful");

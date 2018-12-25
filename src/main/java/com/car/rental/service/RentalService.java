@@ -7,8 +7,8 @@ public interface RentalService {
    * rent selected vehicle;
    *
    * @param email
-   * @param vehicleNo
+   * @param vehicleId
    * @return
    */
-  boolean bookMyCar(String email, int vehicleNo, Date pickup, Date returnDate);
+  boolean bookMyCar(String email, Integer vehicleId, Date pickup, Date returnDate);
 }
