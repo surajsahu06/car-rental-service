@@ -20,7 +20,8 @@ public class RentalServiceImpl implements RentalService {
 
   private VehicleService vehicleService;
 
-  public RentalServiceImpl(CustomerService customerService, RentalPersister rentalPersister, VehicleService vehicleService) {
+  public RentalServiceImpl(CustomerService customerService, RentalPersister rentalPersister,
+    VehicleService vehicleService) {
     this.customerService = customerService;
     this.rentalPersister = rentalPersister;
     this.vehicleService = vehicleService;
@@ -28,6 +29,18 @@ public class RentalServiceImpl implements RentalService {
 
   @Override
   public boolean bookMyCar(String email, int vehicleId, Date pickup, Date returnDate) {
+    if (email == null) {
+      LOGGER.warn("email address is required!");
+      return false;
+    }
+    if (pickup == null) {
+      LOGGER.warn("pickup date is required!");
+      return false;
+    }
+    if (returnDate == null) {
+      LOGGER.warn("return date is required!");
+      return false;
+    }
     CustomerInfo customerInfo = customerService.getCustomerInfo(email);
     if (customerInfo == null) {
       LOGGER.info("customer is empty, please register first");
